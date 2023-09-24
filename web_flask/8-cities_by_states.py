@@ -15,6 +15,10 @@ def cities_by_states():
 
 
 @app.teardown_appcontext
-def close(self):
+def close(exc):
     """Closes the current SQLAlchemy Session."""
     storage.close()
+
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
